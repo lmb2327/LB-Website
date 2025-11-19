@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ profile.name }}{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-xl font-bold text-gray-900 hover:text-blue-600 transition">
+                        {{ profile.name.split()[0] }}
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/" class="nav-link text-gray-700 hover:text-blue-600 font-medium {% if request.path == '/' %}active{% endif %}">
+                        Home
+                    </a>
+                    <a href="/resume" class="nav-link text-gray-700 hover:text-blue-600 font-medium {% if request.path == '/resume' %}active{% endif %}">
+                        Resume
+                    </a>
+                    <a href="/projects" class="nav-link text-gray-700 hover:text-blue-600 font-medium {% if request.path == '/projects' %}active{% endif %}">
+                        Projects
+                    </a>
+                    <a href="/contact" class="nav-link text-gray-700 hover:text-blue-600 font-medium {% if request.path == '/contact' %}active{% endif %}">
+                        Contact
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Home</a>
+                <a href="/resume" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Resume</a>
+                <a href="/projects" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Projects</a>
+                <a href="/contact" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-600 text-sm mb-4 md:mb-0">
+                    © 2024 {{ profile.name }}. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="{{ profile.github }}" target="_blank" class="text-gray-600 hover:text-blue-600 transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="{{ profile.linkedin }}" target="_blank" class="text-gray-600 hover:text-blue-600 transition">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="mailto:{{ profile.email }}" class="text-gray-600 hover:text-blue-600 transition">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
