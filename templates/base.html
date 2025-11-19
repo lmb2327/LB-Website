@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ profile.name }}{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -25,8 +24,8 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: #3b82f6;
-            transition: width 0.3s ease;
+            background-color: rgba(31, 41, 55, 0.12); /* subtle neutral underline */
+            transition: width 0.22s ease;
         }
         
         .nav-link:hover::after,
@@ -39,8 +38,8 @@
         }
         
         .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -6px rgba(0, 0, 0, 0.08);
         }
         
         .fade-in {
@@ -65,28 +64,28 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
-                    <a href="/" class="text-xl font-bold text-gray-900 hover:text-blue-600 transition">
+                    <a href="/" class="text-xl font-bold text-gray-900 hover:text-gray-900 transition">
                         {{ profile.name.split()[0] }}
                     </a>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="/" class="nav-link text-gray-700 hover:text-blue-600 font-medium {% if request.path == '/' %}active{% endif %}">
+                    <a href="/" class="nav-link text-gray-700 hover:text-gray-900 font-medium {% if request.path == '/' %}active{% endif %}">
                         Home
                     </a>
-                    <a href="/resume" class="nav-link text-gray-700 hover:text-blue-600 font-medium {% if request.path == '/resume' %}active{% endif %}">
+                    <a href="/resume" class="nav-link text-gray-700 hover:text-gray-900 font-medium {% if request.path == '/resume' %}active{% endif %}">
                         Resume
                     </a>
-                    <a href="/projects" class="nav-link text-gray-700 hover:text-blue-600 font-medium {% if request.path == '/projects' %}active{% endif %}">
+                    <a href="/projects" class="nav-link text-gray-700 hover:text-gray-900 font-medium {% if request.path == '/projects' %}active{% endif %}">
                         Projects
                     </a>
-                    <a href="/contact" class="nav-link text-gray-700 hover:text-blue-600 font-medium {% if request.path == '/contact' %}active{% endif %}">
+                    <a href="/contact" class="nav-link text-gray-700 hover:text-gray-900 font-medium {% if request.path == '/contact' %}active{% endif %}">
                         Contact
                     </a>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-gray-900 focus:outline-none px-2 py-1 border border-transparent hover:border-gray-200 rounded">
+                        Menu
                     </button>
                 </div>
             </div>
@@ -115,14 +114,14 @@
                     © 2024 {{ profile.name }}. All rights reserved.
                 </div>
                 <div class="flex space-x-6">
-                    <a href="{{ profile.github }}" target="_blank" class="text-gray-600 hover:text-blue-600 transition">
-                        <i class="fab fa-github text-xl"></i>
+                    <a href="{{ profile.github }}" target="_blank" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">
+                        GitHub
                     </a>
-                    <a href="{{ profile.linkedin }}" target="_blank" class="text-gray-600 hover:text-blue-600 transition">
-                        <i class="fab fa-linkedin text-xl"></i>
+                    <a href="{{ profile.linkedin }}" target="_blank" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">
+                        LinkedIn
                     </a>
-                    <a href="mailto:{{ profile.email }}" class="text-gray-600 hover:text-blue-600 transition">
-                        <i class="fas fa-envelope text-xl"></i>
+                    <a href="mailto:{{ profile.email }}" class="text-gray-600 hover:text-gray-900 transition text-sm font-medium">
+                        Email
                     </a>
                 </div>
             </div>

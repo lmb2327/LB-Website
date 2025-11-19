@@ -9,8 +9,7 @@
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Resume</h1>
         <p class="text-lg text-gray-600">{{ profile.title }}</p>
         <div class="mt-6">
-            <a href="#" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition shadow-lg">
-                <i class="fas fa-download mr-2"></i>
+            <a href="#" class="inline-flex items-center px-5 py-2 bg-white text-gray-900 font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition">
                 Download PDF
             </a>
         </div>
@@ -18,8 +17,8 @@
 
     <!-- Experience Section -->
     <section class="mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
-            <i class="fas fa-briefcase text-blue-600 mr-3"></i>Experience
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gray-200">
+            Experience
         </h2>
         <div class="space-y-8">
             {% for job in resume.experience %}
@@ -27,11 +26,9 @@
                 <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
                     <div>
                         <h3 class="text-xl font-bold text-gray-900">{{ job.title }}</h3>
-                        <p class="text-lg text-blue-600 font-medium">{{ job.company }}</p>
+                        <p class="text-lg text-gray-700 font-medium">{{ job.company }}</p>
                     </div>
-                    <span class="text-gray-600 font-medium mt-2 md:mt-0">
-                        <i class="fas fa-calendar-alt mr-1"></i>{{ job.period }}
-                    </span>
+                    <span class="text-gray-600 font-medium mt-2 md:mt-0">{{ job.period }}</span>
                 </div>
                 <p class="text-gray-700 leading-relaxed">{{ job.description }}</p>
             </div>
@@ -41,23 +38,19 @@
 
     <!-- Education Section -->
     <section class="mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
-            <i class="fas fa-graduation-cap text-blue-600 mr-3"></i>Education
-        </h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gray-200">Education</h2>
         <div class="space-y-6">
             {% for edu in resume.education %}
             <div class="bg-white rounded-lg p-6 shadow-md card-hover">
                 <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
                     <div>
                         <h3 class="text-xl font-bold text-gray-900">{{ edu.degree }}</h3>
-                        <p class="text-lg text-blue-600 font-medium">{{ edu.school }}</p>
+                        <p class="text-lg text-gray-700 font-medium">{{ edu.school }}</p>
                         {% if edu.gpa %}
                         <p class="text-gray-600 mt-1">GPA: {{ edu.gpa }}</p>
                         {% endif %}
                     </div>
-                    <span class="text-gray-600 font-medium mt-2 md:mt-0">
-                        <i class="fas fa-calendar-alt mr-1"></i>{{ edu.year }}
-                    </span>
+                    <span class="text-gray-600 font-medium mt-2 md:mt-0">{{ edu.year }}</span>
                 </div>
                 {% if edu.courses %}
                 <p class="text-gray-600 text-sm mt-2"><strong>Relevant Courses:</strong> {{ edu.courses }}</p>
@@ -69,13 +62,11 @@
 
     <!-- Skills Section -->
     <section class="mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
-            <i class="fas fa-tools text-blue-600 mr-3"></i>Skills
-        </h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gray-200">Skills</h2>
         <div class="bg-white rounded-lg p-6 shadow-md">
             <div class="flex flex-wrap gap-3">
                 {% for skill in resume.skills %}
-                <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-medium hover:bg-blue-200 transition">
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm font-medium">
                     {{ skill }}
                 </span>
                 {% endfor %}
@@ -85,9 +76,7 @@
 
     <!-- Certifications (Optional Section) -->
     <section class="mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-blue-600">
-            <i class="fas fa-certificate text-blue-600 mr-3"></i>Certifications
-        </h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 pb-2 border-b-2 border-gray-200">Certifications</h2>
         <div class="bg-white rounded-lg p-6 shadow-md">
             <p class="text-gray-600 italic">Add your certifications here by updating the app.py file</p>
         </div>

@@ -15,26 +15,28 @@
     <!-- Contact Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
         <!-- Email Card -->
-        <a href="mailto:{{ profile.email }}" class="bg-white rounded-xl p-8 shadow-md card-hover block">
+        <a href="mailto:{{ profile.email }}" class="bg-white rounded-xl p-8 shadow-sm card-hover block">
             <div class="flex flex-col items-center text-center">
-                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-envelope text-blue-600 text-2xl"></i>
+                <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4 text-gray-700">
+                    <!-- Email -->
+                    <span class="text-lg font-medium">@</span>
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-2">Email</h3>
-                <p class="text-blue-600 font-medium hover:underline">
+                <p class="text-gray-700 font-medium hover:underline">
                     {{ profile.email }}
                 </p>
             </div>
         </a>
 
         <!-- LinkedIn Card -->
-        <a href="{{ profile.linkedin }}" target="_blank" class="bg-white rounded-xl p-8 shadow-md card-hover block">
+        <a href="{{ profile.linkedin }}" target="_blank" class="bg-white rounded-xl p-8 shadow-sm card-hover block">
             <div class="flex flex-col items-center text-center">
-                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                    <i class="fab fa-linkedin text-blue-600 text-2xl"></i>
+                <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4 text-gray-700">
+                    <!-- LinkedIn -->
+                    <span class="text-lg font-medium">in</span>
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-2">LinkedIn</h3>
-                <p class="text-blue-600 font-medium hover:underline">
+                <p class="text-gray-700 font-medium hover:underline">
                     Connect with me
                 </p>
             </div>
@@ -44,8 +46,7 @@
     <!-- Optional: GitHub Link -->
     <div class="text-center mt-12">
         <p class="text-gray-600 mb-4">You can also check out my work on GitHub</p>
-        <a href="{{ profile.github }}" target="_blank" class="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition shadow-lg">
-            <i class="fab fa-github text-xl mr-2"></i>
+        <a href="{{ profile.github }}" target="_blank" class="inline-flex items-center px-4 py-2 bg-white text-gray-900 font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition">
             Visit My GitHub
         </a>
     </div>
